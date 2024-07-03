@@ -18,4 +18,17 @@ app.get("/item", function(req,res){
   res.send(lista)
 } )
 
+//definir json como padrao do body
+app.use(express.json())
+
+//create 
+app.post("/item", function(req,res){ 
+  const item = req.body.nome 
+  
+  lista.push(item)
+
+  res.send('criado com sucesso.') 
+} )
+
+
 app.listen(3000)
