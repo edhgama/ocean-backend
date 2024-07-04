@@ -30,5 +30,15 @@ app.post("/item", function(req,res){
   res.send('criado com sucesso.') 
 } )
 
+//read by id [GET] /item/:id
+//parametro de rota
+app.get('/item/:id', function(req,res){
+  //recebe parametro da rota
+  id = req.params.id; 
+  item = lista[id - 1];
+  
+  res.send(item)
+})
+
 
 app.listen(3000)
