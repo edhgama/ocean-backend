@@ -40,5 +40,17 @@ app.get('/item/:id', function(req,res){
   res.send(item)
 })
 
+//update by id - [PUT] /item/id
+
+app.put('/item/:id', function(req,res){
+  const id = req.params.id
+  const novoItem = req.body.nome
+  
+  //atualiza item no id
+  lista[id-1] = novoItem
+
+  res.send('Item atualizado! '+ id)
+})
+
 
 app.listen(3000)
