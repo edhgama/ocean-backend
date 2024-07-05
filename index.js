@@ -32,6 +32,7 @@ async function main() {
 
 
   // endpoint read all
+
   // GET /item
   app.get("/item", async function (req, res) {
     //obter registros da collection
@@ -44,12 +45,12 @@ async function main() {
   app.use(express.json())
 
   //create 
-  app.post("/item", function (req, res) {
-    const item = req.body.nome
+  app.post("/item", async function (req, res) {
+    const item = req.body
 
-    lista.push(item)
+    await collection.insertOne(item)
 
-    res.send('criado com sucesso.')
+    res.send(item)
   })
 
   //read by id [GET] /item/:id
