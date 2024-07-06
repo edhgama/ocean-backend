@@ -76,6 +76,15 @@ async function main() {
   res.send('Item atualizado! ' + id)
 })
 
+ //delete by id - [DELETE] /item/id
+ app.delete('/item/:id',async function(req,res){
+    const id = req.params.id
+
+    //deletar object id
+    await collection.deleteOne({_id: new ObjectId(id)})
+
+    res.send('item removido com sucesso!')
+ })
 
 app.listen(3000)
 }
